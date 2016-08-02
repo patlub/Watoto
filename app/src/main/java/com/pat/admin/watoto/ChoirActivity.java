@@ -8,6 +8,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
@@ -15,6 +17,8 @@ import com.roughike.bottombar.OnMenuTabClickListener;
 public class ChoirActivity extends AppCompatActivity {
 
     private BottomBar mBottomBar;
+    private ListView mDrawerList;
+    private ArrayAdapter<String> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,10 @@ public class ChoirActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        mDrawerList = (ListView) findViewById(R.id.navList);
+        addDrawerItems();
+
         mBottomBar = BottomBar.attach(this, savedInstanceState);
         mBottomBar.setItems(R.menu.bottom_bar_menu);
         mBottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
@@ -61,6 +69,11 @@ public class ChoirActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private void addDrawerItems() {
+        String[] osArray = {"Sponsor", "Donate", "Choir", "Activities", "Get Involved", "About"};
+        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
+        mDrawerList.setAdapter(mAdapter);
     }
 
 }
