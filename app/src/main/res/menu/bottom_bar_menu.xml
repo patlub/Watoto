@@ -13,4 +13,9 @@
         android:id="@+id/bottomBarItemthree"
         android:icon="@drawable/don"
         android:title="Choir" />
+
+    <item
+        android:id="@+id/bottomBarItemfour"
+        android:icon="@drawable/don"
+        android:title="Choir" />
 </menu>

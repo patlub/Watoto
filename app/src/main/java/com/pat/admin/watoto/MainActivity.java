@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        if (mediaControls == null) {
-            mediaControls = new MediaController(MainActivity.this);
-        }
+//        if (mediaControls == null) {
+//            mediaControls = new MediaController(MainActivity.this);
+//        }
         videoView = (VideoView) findViewById(R.id.video_view);
-        videoView.setMediaController(mediaControls);
+//        videoView.setMediaController(mediaControls);
         String path = "android.resource://" + getPackageName() + "/" + R.raw.gameloft;
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();

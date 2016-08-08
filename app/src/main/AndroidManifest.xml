@@ -32,7 +32,8 @@
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pat.admin.watoto.MainActivity" />
@@ -60,7 +61,8 @@
             android:name=".DonateActivity"
             android:label="@string/title_activity_donate"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pat.admin.watoto.MainActivity" />
@@ -69,7 +71,8 @@
             android:name=".ChoirActivity"
             android:label="@string/title_activity_choir"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.pat.admin.watoto.MainActivity" />
