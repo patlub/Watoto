@@ -41,4 +41,15 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_about">About</string>
+    <string name="about">Gary and Marilyn Skinner
+Gary and Marilyn Skinner are the passionate and visionary leaders of Watoto Ministries, which includes Watoto Church, Watoto Child Care Ministries, Watoto Children’s Choir and Living Hope.</string>
+    <string name="more">In 1984, Gary and Marilyn founded Watoto Church in the heart of Uganda’s war-torn capital, Kampala.
+
+Watoto Church is a dynamic, cell-based community church that welcomes more than 24,000 people each weekend to celebrate Christ.</string>
+    <string name="title_vision">Vision</string>
+    <string name="title_mission">Mission</string>
+    <string name="title_objectives">Values</string>
+    <string name="title_activity_work">Activities</string>
+    <string name="desc">Gary passionately believes that it is the responsibility of the local church to solve community problems. Watoto Church cares for the community holistically through over 2,900 cell groups, which meet in people’s homes each week.</string>
 </resources>

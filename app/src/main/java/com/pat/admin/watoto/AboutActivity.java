@@ -6,29 +6,26 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
-public class SignUpActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
     private ListView mDrawerList;
-    private ArrayAdapter<String> mAdapter;
     private BottomBar mBottomBar;
     private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_about);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.material_maroon)));
@@ -43,36 +40,43 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mDrawerList = (ListView) findViewById(R.id.navList);
         addDrawerItems();
 
-//        mBottomBar = BottomBar.attach(this, savedInstanceState);
-//        mBottomBar.setItems(R.menu.bottom_bar_menu);
-//        mBottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
-//            @Override
-//            public void onMenuTabSelected(@IdRes int menuItemId) {
-//                if (menuItemId == R.id.bottomBarItemOne) {
-//                    // The user selected item number one.
-//                    Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
-//                    startActivity(intent);
-//                } else if (menuItemId == R.id.bottomBarItemtwo) {
-//                    // The user reselected item number one, scroll your content to top.
-//                    Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
-//                    startActivity(intent);
-//                } else if (menuItemId == R.id.bottomBarItemthree) {
-//                    // The user reselected item number one, scroll your content to top.
-//                    Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
-//                    startActivity(intent);
-//                }
-//            }
-//
-//            @Override
-//            public void onMenuTabReSelected(@IdRes int menuItemId) {
-//                if (menuItemId == R.id.bottomBarItemOne) {
-//                    // The user reselected item number one, scroll your content to top.
-//                }
-//            }
-//        });
+        mBottomBar = BottomBar.attach(this, savedInstanceState);
+        mBottomBar.setItems(R.menu.bottom_bar_menu);
+        mBottomBar.getBar().setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGrey));
+        mBottomBar.mapColorForTab(0, "#00FF00");
+        mBottomBar.mapColorForTab(1, ContextCompat.getColor(getApplicationContext(), R.color.material_maroon));
+//        mBottomBar.mapColorForTab(2, ContextCompat.getColor(getApplicationContext(), R.color.material_maroon));
+//        mBottomBar.mapColorForTab(3, ContextCompat.getColor(getApplicationContext(), R.color.material_maroon));
+        mBottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
+            @Override
+            public void onMenuTabSelected(@IdRes int menuItemId) {
+                if (menuItemId == R.id.bottomBarItemOne) {
+                    // The user selected item number one.
+                }
+            }
+
+            @Override
+            public void onMenuTabReSelected(@IdRes int menuItemId) {
+                if (menuItemId == R.id.bottomBarItemOne) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
+                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemtwo) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
+                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemthree) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
     }
 
     private void addDrawerItems() {
@@ -98,7 +102,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent;
-                switch (i){
+                switch (i) {
                     case 0:
                         intent = new Intent(getApplicationContext(), VideoActivity.class);
                         startActivity(intent);
@@ -116,16 +120,17 @@ public class SignUpActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 4:
-                        intent = new Intent(getApplicationContext(), AboutActivity.class);
-                        startActivity(intent);
                         break;
                     case 5:
                         intent = new Intent(getApplicationContext(), SignInActivity.class);
                         startActivity(intent);
                         break;
                     case 6:
+                        intent = new Intent(getApplicationContext(), SignUpActivity.class);
+                        startActivity(intent);
                         break;
                 }
+//                Toast.makeText(getApplicationContext(),"You Clicked "+items[i],Toast.LENGTH_SHORT).show();
             }
         });
     }

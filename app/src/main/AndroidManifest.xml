@@ -21,22 +21,22 @@
         <activity
             android:name=".SignInActivity"
             android:label="@string/title_activity_sign_in"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".VideoActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pat.admin.watoto.MainActivity" />
+                android:value="com.pat.admin.watoto.VideoActivity" />
         </activity>
         <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_sign_up"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".VideoActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pat.admin.watoto.MainActivity" />
+                android:value="com.pat.admin.watoto.VideoActivity" />
         </activity>
         <activity
             android:name=".VideoActivity"
@@ -51,31 +51,49 @@
         <activity
             android:name=".DevotionalActivity"
             android:label="@string/title_activity_devotional"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".VideoActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pat.admin.watoto.MainActivity" />
+                android:value="com.pat.admin.watoto.VideoActivity" />
         </activity>
         <activity
             android:name=".DonateActivity"
             android:label="@string/title_activity_donate"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".VideoActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pat.admin.watoto.MainActivity" />
+                android:value="com.pat.admin.watoto.VideoActivity" />
         </activity>
         <activity
             android:name=".ChoirActivity"
             android:label="@string/title_activity_choir"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".VideoActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.pat.admin.watoto.MainActivity" />
+                android:value="com.pat.admin.watoto.VideoActivity" />
+        </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".VideoActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pat.admin.watoto.VideoActivity" />
+        </activity>
+        <activity
+            android:name=".WorkActivity"
+            android:label="@string/title_activity_work"
+            android:parentActivityName=".VideoActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pat.admin.watoto.VideoActivity" />
         </activity>
     </application>
 

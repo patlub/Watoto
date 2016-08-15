@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorGrey">#adadad</color>
+    <color name="colorBlue">#0000ff</color>
     <color name="material_maroon">#900C3F</color>
     <color name="colorWhite">#FFFFFF</color>
 </resources>

@@ -32,7 +32,6 @@ public class VideoActivity extends AppCompatActivity {
     private MediaController mediaControls;
     private ListView listView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +39,8 @@ public class VideoActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.material_maroon)));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -96,110 +97,59 @@ public class VideoActivity extends AppCompatActivity {
         videoView.setMediaController(mediaControls);
         String path = "android.resource://" + getPackageName() + "/" + R.raw.gameloft;
         videoView.setVideoURI(Uri.parse(path));
-        videoView.start();
+//        videoView.start();
     }
 
     private void addDrawerItems() {
-        final String[] items = {"Sponsor", "Donate", "Choir", "Activities", "Get Involved", "About", "Sign In", "Sign Up"};
+        final String[] items = {"Home", "Donate", "Book Choir", "Activities", "About", "Sign In", "Sign Up"};
         Integer imageid[] = {
-                R.drawable.ic_action_favorite,
-                R.drawable.ic_action_home,
-                R.drawable.ic_action_home,
-                R.drawable.ic_action_favorite,
-                R.drawable.ic_action_favorite,
-                R.drawable.ic_action_favorite,
-                R.drawable.ic_action_favorite,
-                R.drawable.ic_action_favorite
+                R.drawable.ic_home,
+                R.drawable.ic_love,
+                R.drawable.ic_music,
+                R.drawable.ic_items,
+                R.drawable.ic_info,
+                R.drawable.ic_sign_in,
+                R.drawable.ic_sign_up
         };
-//        mDrawerList.setAdapter(mAdapter);
 
         DrawerList customList = new DrawerList(this, items, imageid);
 
         listView = (ListView) findViewById(R.id.navList);
         assert listView != null;
         listView.setAdapter(customList);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent;
                 switch (i){
                     case 0:
-                        // case 0
+                        break;
                     case 1:
                         intent = new Intent(getApplicationContext(), DonateActivity.class);
                         startActivity(intent);
+                        break;
                     case 2:
                         intent = new Intent(getApplicationContext(), ChoirActivity.class);
                         startActivity(intent);
-                    case 6:
+                        break;
+                    case 3:
+                        intent = new Intent(getApplicationContext(), WorkActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 4:
+                        intent = new Intent(getApplicationContext(), AboutActivity.class);
+                        startActivity(intent);
+                        break;
+                    case 5:
                         intent = new Intent(getApplicationContext(), SignInActivity.class);
                         startActivity(intent);
-                    case 7:
+                        break;
+                    case 6:
                         intent = new Intent(getApplicationContext(), SignUpActivity.class);
                         startActivity(intent);
                         break;
                 }
-//                Toast.makeText(getApplicationContext(),"You Clicked "+items[i],Toast.LENGTH_SHORT).show();
             }
         });
-
-//        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent;
-//                switch (position){
-//                    case 1:
-//                        intent = new Intent(getApplicationContext(), DonateActivity.class);
-//                        startActivity(intent);
-//                    case 2:
-//                        intent = new Intent(getApplicationContext(), ChoirActivity.class);
-//                        startActivity(intent);
-//                    case 6:
-//                        intent = new Intent(getApplicationContext(), SignInActivity.class);
-//                        startActivity(intent);
-//                    case 7:
-//                        intent = new Intent(getApplicationContext(), SignUpActivity.class);
-//                        startActivity(intent);
-//                }
-//            }
-//        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.sign_in) {
-            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.sign_up) {
-            Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.video) {
-            Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.donate) {
-            Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.choir) {
-            Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
-            startActivity(intent);
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
