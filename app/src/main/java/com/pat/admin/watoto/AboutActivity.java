@@ -56,6 +56,19 @@ public class AboutActivity extends AppCompatActivity {
             public void onMenuTabSelected(@IdRes int menuItemId) {
                 if (menuItemId == R.id.bottomBarItemOne) {
                     // The user selected item number one.
+
+                } else if (menuItemId == R.id.bottomBarItemtwo) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
+                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemthree) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
+                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemfour) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -64,14 +77,6 @@ public class AboutActivity extends AppCompatActivity {
                 if (menuItemId == R.id.bottomBarItemOne) {
                     // The user reselected item number one, scroll your content to top.
                     Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
-                    startActivity(intent);
-                } else if (menuItemId == R.id.bottomBarItemtwo) {
-                    // The user reselected item number one, scroll your content to top.
-                    Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
-                    startActivity(intent);
-                } else if (menuItemId == R.id.bottomBarItemthree) {
-                    // The user reselected item number one, scroll your content to top.
-                    Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
                     startActivity(intent);
                 }
             }
@@ -90,14 +95,12 @@ public class AboutActivity extends AppCompatActivity {
                 R.drawable.ic_sign_in,
                 R.drawable.ic_sign_up
         };
-//        mDrawerList.setAdapter(mAdapter);
 
         DrawerList customList = new DrawerList(this, items, imageid);
 
         listView = (ListView) findViewById(R.id.navList);
         assert listView != null;
         listView.setAdapter(customList);
-//
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -119,8 +122,6 @@ public class AboutActivity extends AppCompatActivity {
                         intent = new Intent(getApplicationContext(), WorkActivity.class);
                         startActivity(intent);
                         break;
-                    case 4:
-                        break;
                     case 5:
                         intent = new Intent(getApplicationContext(), SignInActivity.class);
                         startActivity(intent);
@@ -130,7 +131,6 @@ public class AboutActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                 }
-//                Toast.makeText(getApplicationContext(),"You Clicked "+items[i],Toast.LENGTH_SHORT).show();
             }
         });
     }

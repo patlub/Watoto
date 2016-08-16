@@ -4,7 +4,6 @@
         android:id="@+id/bottomBarItemOne"
         android:icon="@drawable/ic_items"
         android:title="Menu" />
-
     <item
         android:id="@+id/bottomBarItemtwo"
         android:icon="@drawable/ic_home"
@@ -13,7 +12,6 @@
         android:id="@+id/bottomBarItemthree"
         android:icon="@drawable/ic_love"
         android:title="Donate" />
-
     <item
         android:id="@+id/bottomBarItemfour"
         android:icon="@drawable/ic_music"

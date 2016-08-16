@@ -9,6 +9,7 @@ import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -50,6 +51,49 @@ public class ChoirActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mBottomBar = BottomBar.attach(this, savedInstanceState);
+        mBottomBar.setItems(R.menu.bottom_bar_menu);
+        mBottomBar.setDefaultTabPosition(3);
+        mBottomBar.getBar().setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGrey));
+        mBottomBar.mapColorForTab(0, "#00FF00");
+        mBottomBar.mapColorForTab(1, ContextCompat.getColor(getApplicationContext(), R.color.material_maroon));
+//        mBottomBar.mapColorForTab(2, ContextCompat.getColor(getApplicationContext(), R.color.material_maroon));
+//        mBottomBar.mapColorForTab(3, ContextCompat.getColor(getApplicationContext(), R.color.material_maroon));
+        mBottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
+            @Override
+            public void onMenuTabSelected(@IdRes int menuItemId) {
+                if (menuItemId == R.id.bottomBarItemOne) {
+                    // The user selected item number one.
+
+                } else if (menuItemId == R.id.bottomBarItemtwo) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
+                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemthree) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onMenuTabReSelected(@IdRes int menuItemId) {
+                if (menuItemId == R.id.bottomBarItemOne) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
+                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemtwo) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
+                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemthree) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
         mDrawerList = (ListView) findViewById(R.id.navList);
         addDrawerItems();
 
@@ -82,14 +126,12 @@ public class ChoirActivity extends AppCompatActivity {
                 R.drawable.ic_sign_in,
                 R.drawable.ic_sign_up
         };
-//        mDrawerList.setAdapter(mAdapter);
 
         DrawerList customList = new DrawerList(this, items, imageid);
 
         listView = (ListView) findViewById(R.id.navList);
         assert listView != null;
         listView.setAdapter(customList);
-//
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -102,8 +144,6 @@ public class ChoirActivity extends AppCompatActivity {
                     case 1:
                         intent = new Intent(getApplicationContext(), DonateActivity.class);
                         startActivity(intent);
-                        break;
-                    case 2:
                         break;
                     case 3:
                         intent = new Intent(getApplicationContext(), WorkActivity.class);

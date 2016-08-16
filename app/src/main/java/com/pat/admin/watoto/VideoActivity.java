@@ -2,6 +2,7 @@ package com.pat.admin.watoto;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -57,6 +58,7 @@ public class VideoActivity extends AppCompatActivity {
 
         mBottomBar = BottomBar.attach(this, savedInstanceState);
         mBottomBar.setItems(R.menu.bottom_bar_menu);
+        mBottomBar.setDefaultTabPosition(1);
         mBottomBar.getBar().setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorGrey));
         mBottomBar.mapColorForTab(0, "#00FF00");
         mBottomBar.mapColorForTab(1, ContextCompat.getColor(getApplicationContext(), R.color.material_maroon));
@@ -65,22 +67,32 @@ public class VideoActivity extends AppCompatActivity {
         mBottomBar.setOnMenuTabClickListener(new OnMenuTabClickListener() {
             @Override
             public void onMenuTabSelected(@IdRes int menuItemId) {
-                if (menuItemId == R.id.bottomBarItemOne) {
-                    // The user selected item number one.
+                if (menuItemId == R.id.bottomBarItemtwo) {
+                    // The user reselected item number one, scroll your content to top.
+//                    Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
+//                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemthree) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
+                    startActivity(intent);
+                } else if (menuItemId == R.id.bottomBarItemfour) {
+                    // The user reselected item number one, scroll your content to top.
+                    Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
+                    startActivity(intent);
                 }
             }
 
             @Override
             public void onMenuTabReSelected(@IdRes int menuItemId) {
-                if (menuItemId == R.id.bottomBarItemOne) {
+                if (menuItemId == R.id.bottomBarItemtwo) {
                     // The user reselected item number one, scroll your content to top.
                     Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
                     startActivity(intent);
-                } else if (menuItemId == R.id.bottomBarItemtwo) {
+                } else if (menuItemId == R.id.bottomBarItemthree) {
                     // The user reselected item number one, scroll your content to top.
                     Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
                     startActivity(intent);
-                } else if (menuItemId == R.id.bottomBarItemthree) {
+                } else if (menuItemId == R.id.bottomBarItemfour) {
                     // The user reselected item number one, scroll your content to top.
                     Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
                     startActivity(intent);
@@ -95,9 +107,9 @@ public class VideoActivity extends AppCompatActivity {
         videoView = (VideoView) findViewById(R.id.video_view);
         assert videoView != null;
         videoView.setMediaController(mediaControls);
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.gameloft;
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.vid;
         videoView.setVideoURI(Uri.parse(path));
-//        videoView.start();
+        videoView.start();
     }
 
     private void addDrawerItems() {

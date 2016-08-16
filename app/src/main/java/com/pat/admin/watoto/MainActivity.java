@@ -2,6 +2,7 @@ package com.pat.admin.watoto;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 //import android.support.design.widget.FloatingActionButton;
@@ -44,7 +45,13 @@ public class MainActivity extends AppCompatActivity {
 //        }
         videoView = (VideoView) findViewById(R.id.video_view);
 //        videoView.setMediaController(mediaControls);
-        String path = "android.resource://" + getPackageName() + "/" + R.raw.gameloft;
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.vid;
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
         videoView.setVideoURI(Uri.parse(path));
         videoView.start();
     }
@@ -52,42 +59,5 @@ public class MainActivity extends AppCompatActivity {
     public void home(View view) {
         Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.sign_in) {
-            Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.sign_up) {
-            Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.video) {
-            Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.donate) {
-            Intent intent = new Intent(getApplicationContext(), DonateActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.choir) {
-            Intent intent = new Intent(getApplicationContext(), ChoirActivity.class);
-            startActivity(intent);
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }
